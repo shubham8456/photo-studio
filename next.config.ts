@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
 const gitRepo = 'photo-studio';
 
 const nextConfig: NextConfig = {
@@ -7,8 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath:    process.env.NODE_ENV === 'production' ? `/${gitRepo}`  : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? `/${gitRepo}/` : '',
+  basePath:    isProd ? `/${gitRepo}`  : '',
+  assetPrefix: isProd ? `/${gitRepo}/` : '',
 };
 
 export default nextConfig;
