@@ -8,7 +8,6 @@ import Header from "../header";
 import Footer from "../footer";
 
 import { PhotoDetails } from "@/types/photo";
-import { formatDate } from "@/utils/date";
 
 import { ArrowBack } from "../icons/ArrowBack";
 import { Camera }    from "../icons/Camera";
@@ -43,7 +42,7 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
           </h1>
         </div>
 
-        <div className="photo-frame rounded-[2rem] overflow-hidden p-4 md:p-8 bg-[#E0E5EC] mb-8">
+        <div className="photo-frame rounded-[2rem] overflow-hidden p-4 md:p-8 bg-[#E0E5EC] mb-16">
           <div className="rounded-2xl overflow-hidden soft-in-deep relative">
 
             {/* Image Showcase */}
@@ -68,23 +67,9 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
             </div>
           </div>
         </div>
-        
-        <div className="rounded-[1.5rem] overflow-hidden soft-ui-extruded p-2 md:p-6 bg-[#E0E5EC] mb-16">
-          <span className="bg-white/30 px-2 py-0.5 rounded-full">
-            <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px]">
-              CAPTURED ON:&nbsp;
-            </span>
-            <span className="font-semibold text-slate-800 text-xs" suppressHydrationWarning>
-              {formatDate(photo.createdAt)}
-            </span>
-          </span>
-          <h3 className="font-semibold mt-3">
-            {`"${photo.desc}"`}
-          </h3>
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 p-10 rounded-[1.5rem] soft-ui-extruded bg-[#E0E5EC]">
+          <div className="lg:col-span-2 p-10 rounded-[1.5rem] soft-ui-recessed bg-[#E0E5EC]">
             <h3 className="text-xl font-bold text-slate-800 mb-8 flex items-center gap-3">
               <Camera />
               Technical Metadata
