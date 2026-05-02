@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 import MapWrapper from "./MapWrapper";
@@ -16,6 +18,8 @@ interface PhotoDetailsPageProps {
 }
 
 export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
+  const router = useRouter();
+
   return (
     <main>
       <Header />
@@ -24,15 +28,15 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
         
         {/* navigation bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-6">
-          <Link
-            className="flex items-center gap-2 group text-slate-600 hover:text-slate-900 transition-colors"
-            href="/"
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 group text-slate-600 hover:text-slate-900 transition-colors bg-transparent border-none cursor-pointer"
           >
             <ArrowBack />
             <span className="font-bold text-xs uppercase tracking-widest">
               Back to Gallery
             </span>
-          </Link>
+          </button>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">
             {photo.title}
           </h1>

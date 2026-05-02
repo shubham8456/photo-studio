@@ -1,18 +1,28 @@
 "use client";
 
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import GalleryItem from "./GalleryItem";
 import Header from "../header";
 import Footer from "../footer";
 import { FilterIcon } from '@/app/components/icons/FilterIcon';
-
 import { photoDetails } from "@/data/photo_details";
 
 const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
 
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState("ALL");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const activeCategory = searchParams.get("category") || "ALL";
+
+  const handleFilterChange = (category: string) => {
+    if (category === "ALL") {
+      router.push("/");
+    } else {
+      router.push(`?category=${category}`);
+    }
+  };
 
   const filteredPhotos = activeCategory === "ALL" 
     ? photoDetails
@@ -27,8 +37,8 @@ export default function HomePage() {
         <section className="mt-2 mb-2">
           <div className="flex gap-4 overflow-x-auto hide-scrollbar py-4 px-2 text-sm">
             <button
-              onClick={() => setActiveCategory("ALL")}
-              className={`flex-0 px-3 py-1.5 rounded-full flex items-center gap-2 transition-all ${
+              onClick={() => handleFilterChange("ALL")}
+              className={`flex-none px-3 py-1.5 rounded-full flex items-center gap-2 transition-all ${
                 activeCategory === "ALL" 
                 ? "bg-slate-800 text-white" 
                 : "bg-white/40 text-slate-600"
@@ -37,21 +47,19 @@ export default function HomePage() {
               <FilterIcon />
               ALL
             </button>
-            {categories.map(
-              (category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`flex-0 px-3 py-1.5 rounded-full border border-white/20 transition-all ${
-                    activeCategory === category 
-                    ? "bg-slate-800 text-white" 
-                    : "bg-white/40 text-slate-600 md:hover:bg-slate-800/60 md:hover:text-white"
-                  }`}
-                >
-                  {category}
-                </button>
-              ),
-            )}
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleFilterChange(category)}
+                className={`flex-none px-3 py-1.5 rounded-full border border-white/20 transition-all ${
+                  activeCategory === category 
+                  ? "bg-slate-800 text-white" 
+                  : "bg-white/40 text-slate-600 md:hover:bg-slate-800/60 md:hover:text-white"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </section>
 
@@ -65,4 +73,4 @@ export default function HomePage() {
       <Footer />
     </div>
   );
-};
+}
