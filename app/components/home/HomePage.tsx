@@ -5,6 +5,7 @@ import { useState } from 'react';
 import GalleryItem from "./GalleryItem";
 import Header from "../header";
 import Footer from "../footer";
+import { FilterIcon } from '../../components/icons/FilterIcon';
 
 import { photoDetails } from "../../../data/photo_details";
 
@@ -33,9 +34,7 @@ export default function HomePage() {
                 : "bg-white/40 text-slate-600"
               }`}
             >
-              <span className="material-symbols-outlined text-[12px]">
-                filter_list
-              </span>
+              <FilterIcon />
               ALL
             </button>
             {categories.map(
@@ -43,10 +42,10 @@ export default function HomePage() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`flex-0 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/20 transition-all ${
+                  className={`flex-0 px-3 py-1.5 rounded-full border border-white/20 transition-all ${
                     activeCategory === category 
                     ? "bg-slate-800 text-white" 
-                    : "bg-white/40 text-slate-600 hover:bg-slate-800/60 hover:text-white"
+                    : "bg-white/40 text-slate-600 md:hover:bg-slate-800/60 md:hover:text-white"
                   }`}
                 >
                   {category}
@@ -66,4 +65,4 @@ export default function HomePage() {
       <Footer />
     </div>
   );
-}
+};
