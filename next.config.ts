@@ -5,7 +5,10 @@ const gitRepo = 'photo-studio';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  images: { unoptimized: true },
+  images: {
+    unoptimized: true,
+    remotePatterns: [new URL('https://lh3.googleusercontent.com/aida-public/**')],
+  },
   basePath:    isProd ? `/${gitRepo}`  : '',
   assetPrefix: isProd ? `/${gitRepo}/` : '',
 };
