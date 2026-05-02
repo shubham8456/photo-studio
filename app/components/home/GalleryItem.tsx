@@ -8,6 +8,19 @@ type GalleryItemProps = {
   img: string;
   aspect: string;
   tags: string[];
+  metadata: {
+    camera_body: string;
+    lens_system: string;
+    aperture: string;
+    shutter_speed: string;
+    iso: string;
+    focal_length: string;
+    location: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+  };
 };
 
 const GalleryItem = ({ id, title, desc, img, aspect, tags }: GalleryItemProps) => (
