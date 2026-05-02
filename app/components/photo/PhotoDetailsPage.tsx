@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import MapWrapper from "./MapWrapper";
 import Header from "../header";
 import Footer from "../footer";
+
 import { PhotoDetails } from "@/types/photo";
 
 import { ArrowBack } from "../icons/ArrowBack";
 import { Camera }    from "../icons/Camera";
-import { Location } from "../icons/Location";
+import { Location }  from "../icons/Location";
 
 interface PhotoDetailsPageProps {
   photo: PhotoDetails;
@@ -107,19 +109,13 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
           <div className="flex flex-col gap-8">
             <div className="p-8 rounded-[1.5rem] soft-ui-extruded bg-[#E0E5EC] flex-grow flex flex-col items-center justify-center text-center">
               <div className="w-full aspect-square rounded-2xl overflow-hidden soft-ui-recessed mb-6">
-                <Image
-                  width="100"
-                  height="100"
-                  className="w-full h-full object-cover opacity-80 mix-blend-multiply"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkKpWFynV9o78PEjWEG3uNDzd0kghs9j3irRAy1Hu9qjQ6fs4AKWPgyt8H8S0dkbd2bg5TnfLZaXQQOAnF4IiNGl36BEM37VwBJRYCUxmUSilA1N_EnE1xKVY2UzoXmXKxvZ381uQUkZ-BE8UWS-KD_mDFxp14eZP4ZsvJ78PJYjASk__Lk2TUqmGDRZkBNvQZuU9Cb0BGeeviOp4jMvsWl1otMqbS5G9vL1wFVgbAIrnO5bzgPr5PYVSnFlsUJjZjfE3r9tXVYrs"
-                  alt="Map"
-                />
+                <MapWrapper lat={photo.coordinates.lat} lng={photo.coordinates.lng} />
               </div>
               <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px] mb-2">
                 Capture Coordinates
               </span>
               <p className="font-mono text-slate-700 bg-white/30 px-4 py-1 rounded-full text-xs">
-                {`${photo.coordinates.lat}° N, ${photo.coordinates.lng}° W`}
+                {`${photo.coordinates.lat}° N, ${photo.coordinates.lng}° E`}
               </p>
             </div>
           </div>
