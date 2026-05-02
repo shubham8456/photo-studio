@@ -15,9 +15,7 @@ const GalleryItem = ({ id, title, desc, img, aspect }: GalleryItemProps) => (
     className="masonry-item group block cursor-pointer"
   >
     <div className="neumorphic-card rounded-[1.5rem] p-3 flex flex-col gap-3 transition-transform duration-300 hover:scale-[1.02]">
-      <div
-        className={`neumorphic-inset-img rounded-[1rem] overflow-hidden relative ${aspect}`}
-      >
+      <div className={`neumorphic-inset-img rounded-[1rem] overflow-hidden relative ${aspect}`}>
         <Image
           src={img}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -25,14 +23,6 @@ const GalleryItem = ({ id, title, desc, img, aspect }: GalleryItemProps) => (
           width="100"
           height="100"
         />
-        <div className="absolute top-2 right-2 neumorphic-flat rounded-full p-1.5 text-slate-600 scale-75 origin-top-right">
-          <span
-            className="material-symbols-outlined text-[18px]"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            favorite
-          </span>
-        </div>
       </div>
       <div className="px-2 pb-1">
         <h3 className="font-semibold text-sm text-on-surface truncate">
