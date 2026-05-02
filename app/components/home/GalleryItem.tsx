@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link  from "next/link";
 import Image from "next/image";
 
 import { PhotoDetails } from "@/types/photo"
 
-const GalleryItem = ({ id, title, desc, createdAt, url, aspect, tags }: PhotoDetails) => (
+const GalleryItem = ({ id, title, desc, url, aspect }: PhotoDetails) => (
   <Link
     href={`/photo/${id}`}
     className="masonry-item group block cursor-pointer"

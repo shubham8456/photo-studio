@@ -1,14 +1,12 @@
-import Link from "next/link";
+import Link  from "next/link";
+import Image from "next/image";
+
 import Header from "../header";
+import { PhotoDetails } from "@/types/photo";
 
-type Photo = {
-  id: string;
-  title: string;
-};
-
-type PhotoDetailsPageProps = {
-  photo: Photo;
-};
+interface PhotoDetailsPageProps {
+  photo: PhotoDetails;
+}
 
 export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
   return (
@@ -16,6 +14,14 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
       <Header />
       <h1>Photo Deatils Page</h1>
       <p>Photo Title: {photo.title}</p>
+      <p>Photo Desc: {photo.desc}</p>
+      <Image
+        src={photo.url}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        alt={photo.title}
+        width="40"
+        height="40"
+      />
 
       <nav>
         <Link href="/">Back to Gallery</Link>

@@ -1,32 +1,15 @@
 import { notFound } from "next/navigation";
-import PhotoDetailsPage from "../../components/photo/PhotoDetailsPage";
 
-type Photo = {
-  id: string;
-  title: string;
-};
+import { photoDetails } from "@/data/photo_details";
+import PhotoDetailsPage from "@/app/components/photo/PhotoDetailsPage";
 
-type PhotoPageProps = {
-  params: {
-    photo: string;
-  };
-};
+type PhotoPageParams = Promise<{ id: string }>;
 
-function getPhoto(photoId: string): Photo | undefined {
-  const photos: Photo[] = [
-    { id: "1", title: "Sunset" },
-    { id: "2", title: "Mountains" },
-  ];
+export default async function LoadPhotoDetailsPage({ params }: { params: PhotoPageParams }) {
+  const { id } = await params;
+  const photo = photoDetails.find((p) => p.id === id);
 
-  return photos.find((p) => p.id === photoId);
-}
-
-export default function LoadPhotoDetailsPage({ params }: PhotoPageProps) {
-  const photo = getPhoto(params.photo);
-
-  if (!photo) {
-    notFound();
-  }
+  if (!photo) notFound();
 
   return (
     <PhotoDetailsPage photo={photo} />
