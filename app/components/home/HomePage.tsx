@@ -19,9 +19,9 @@ export default function HomePage() {
     : photoDetails.filter(photo => photo.tags.includes(activeCategory.toLowerCase()));
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen">
       <Header />
-      <main className="flex-grow max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-unit">
+      <main className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-unit">
 
         {/* List of Filters */}
         <section className="mt-2 mb-2">
