@@ -7,9 +7,10 @@ type GalleryItemProps = {
   desc: string;
   img: string;
   aspect: string;
+  tags: string[];
 };
 
-const GalleryItem = ({ id, title, desc, img, aspect }: GalleryItemProps) => (
+const GalleryItem = ({ id, title, desc, img, aspect, tags }: GalleryItemProps) => (
   <Link
     href={`/photo/${id}`}
     className="masonry-item group block cursor-pointer"

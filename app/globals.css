@@ -1,80 +1,77 @@
 @import "tailwindcss";
 
-/*:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}*/
-
 body {
-            background-color: #E0E5EC;
-            color: #171c1f;
-            min-height: max(884px, 100dvh);
-        }
-        .neumorphic-flat {
-            background: #E0E5EC;
-            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
-        }
-        .neumorphic-pressed {
-            background: #E0E5EC;
-            box-shadow: inset 4px 4px 8px #b8b9be, inset -4px -4px 8px #ffffff;
-        }
-        .neumorphic-card {
-            background: #E0E5EC;
-            box-shadow: 12px 12px 24px #b8b9be, -12px -12px 24px #ffffff;
-        }
-        .neumorphic-inset-img {
-            box-shadow: inset 2px 2px 5px #b8b9be, inset -2px -2px 5px #ffffff;
-        }
-        .soft-ui-recessed {
-            background: #E0E5EC;
-            box-shadow: inset 4px 4px 8px #b8b9be, inset -4px -4px 8px #ffffff;
-        }
-        .soft-ui-extruded {
-            background: #E0E5EC;
-            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
-        }
-        .soft-in-deep {
-            box-shadow: inset 8px 8px 16px #b8b9be, inset -8px -8px 16px #ffffff;
-        }
-        .photo-frame {
-            box-shadow: 12px 12px 24px #b8b9be, -12px -12px 24px #ffffff;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem;
-        }
-        @media (min-width: 640px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-        @media (min-width: 1024px) {
-            .masonry-grid {
-                column-count: 4;
-            }
-        }
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-        }
+  background-color: #e0e5ec;
+  color: #171c1f;
+  min-height: max(884px, 100dvh);
+}
+.neumorphic-flat {
+  background: #e0e5ec;
+  box-shadow:
+    6px 6px 12px #b8b9be,
+    -6px -6px 12px #ffffff;
+}
+̛̛.neumorphic-pressed {
+  background: #e0e5ec;
+  box-shadow:
+    inset 4px 4px 8px #b8b9be,
+    inset -4px -4px 8px #ffffff;
+}
+.neumorphic-card {
+  background: #e0e5ec;
+  box-shadow:
+    12px 12px 24px #b8b9be,
+    -12px -12px 24px #ffffff;
+}
+.neumorphic-inset-img {
+  box-shadow:
+    inset 2px 2px 5px #b8b9be,
+    inset -2px -2px 5px #ffffff;
+}
+.soft-ui-recessed {
+  background: #e0e5ec;
+  box-shadow:
+    inset 4px 4px 8px #b8b9be,
+    inset -4px -4px 8px #ffffff;
+}
+.soft-ui-extruded {
+  background: #e0e5ec;
+  box-shadow:
+    6px 6px 12px #b8b9be,
+    -6px -6px 12px #ffffff;
+}
+.soft-in-deep {
+  box-shadow:
+    inset 8px 8px 16px #b8b9be,
+    inset -8px -8px 16px #ffffff;
+}
+.photo-frame {
+  box-shadow:
+    12px 12px 24px #b8b9be,
+    -12px -12px 24px #ffffff;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
