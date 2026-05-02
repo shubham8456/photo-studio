@@ -1,29 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-type GalleryItemProps = {
-  id: string;
-  title: string;
-  desc: string;
-  img: string;
-  aspect: string;
-  tags: string[];
-  metadata: {
-    camera_body: string;
-    lens_system: string;
-    aperture: string;
-    shutter_speed: string;
-    iso: string;
-    focal_length: string;
-    location: string;
-    coordinates: {
-      lat: number;
-      lng: number;
-    };
-  };
-};
+import { PhotoDetails } from "@/types/photo"
 
-const GalleryItem = ({ id, title, desc, img, aspect, tags }: GalleryItemProps) => (
+const GalleryItem = ({ id, title, desc, createdAt, url, aspect, tags }: PhotoDetails) => (
   <Link
     href={`/photo/${id}`}
     className="masonry-item group block cursor-pointer"
@@ -31,7 +11,7 @@ const GalleryItem = ({ id, title, desc, img, aspect, tags }: GalleryItemProps) =
     <div className="neumorphic-card rounded-[1.5rem] p-3 flex flex-col gap-3 transition-transform duration-300 hover:scale-[1.02]">
       <div className={`neumorphic-inset-img rounded-[1rem] overflow-hidden relative ${aspect}`}>
         <Image
-          src={img}
+          src={url}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           alt={title}
           width="100"

@@ -5,9 +5,9 @@ import { useState } from 'react';
 import GalleryItem from "./GalleryItem";
 import Header from "../header";
 import Footer from "../footer";
-import { FilterIcon } from '../../components/icons/FilterIcon';
+import { FilterIcon } from '@/app/components/icons/FilterIcon';
 
-import { photoDetails } from "../../../data/photo_details";
+import { photoDetails } from "@/data/photo_details";
 
 const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
 
