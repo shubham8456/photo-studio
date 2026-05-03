@@ -75,3 +75,6 @@ body {
   break-inside: avoid;
   margin-bottom: 1.5rem;
 }
+.leaflet-control-attribution {
+  display: none !important;
+}

@@ -39,21 +39,24 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
             </span>
           </button>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">
-            {photo.title}
+            {photo.title ? photo.title : ""}
           </h1>
         </div>
 
         <div className="photo-frame rounded-[2rem] overflow-hidden p-4 md:p-8 bg-[#E0E5EC] mb-8">
-          <div className="rounded-2xl overflow-hidden soft-in-deep relative">
+          <div className="rounded-2xl overflow-hidden relative">
 
             {/* Image Showcase */}
-            <Image
-              className="w-full h-full object-cover"
-              src={photo.url}
-              alt={photo.title}
-              width="100"
-              height="100"
-            />
+            {photo.url
+              ? (<Image
+                  className="w-full h-full soft-in-deep object-cover"
+                  src={photo.url}
+                  alt={photo.title}
+                  width="100"
+                  height="100"
+                />)
+              : (<div className="font-semibold text-center uppercase">Unable to load image</div>)
+            }
             
             {/* Image Tags */}
             <div className="absolute bottom-6 left-6 flex gap-3">
@@ -70,16 +73,18 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
         </div>
         
         <div className="rounded-[1.5rem] overflow-hidden soft-ui-extruded p-3 md:p-6 bg-[#E0E5EC] mb-16">
-          <span className="bg-white/30 px-2 py-0.5 rounded-full">
-            <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px]">
-              CAPTURED ON:&nbsp;
+          {photo.createdAt && !isNaN(Date.parse(photo.createdAt)) && (
+            <span className="bg-white/30 px-2 py-0.5 rounded-full">
+              <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px]">
+                CAPTURED ON:&nbsp;
+              </span>
+              <span className="font-semibold text-slate-800 text-xs" suppressHydrationWarning>
+                {formatDate(photo.createdAt)}
+              </span>
             </span>
-            <span className="font-semibold text-slate-800 text-xs" suppressHydrationWarning>
-              {formatDate(photo.createdAt)}
-            </span>
-          </span>
+          )}
           <h3 className="font-semibold mt-3">
-            {`"${photo.desc}"`}
+            {photo.desc ? `"${photo.desc}"` : ''}
           </h3>
         </div>
 
@@ -93,12 +98,12 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
             {/* Spec Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
               {[
-                { k: "Camera Body",     v: photo.metadata.cameraBody },
-                { k: "Lens System",     v: photo.metadata.lensSystem },
-                { k: "Aperture",        v: photo.metadata.aperture },
-                { k: "Shutter Speed",   v: photo.metadata.shutterSpeed },
-                { k: "ISO Sensitivity", v: `ISO ${photo.metadata.iso}` },
-                { k: "Focal Length",    v: photo.metadata.focalLength },
+                { k: "Camera Body",     v: photo.metadata.cameraBody || ''},
+                { k: "Lens System",     v: photo.metadata.lensSystem || ''},
+                { k: "Aperture",        v: photo.metadata.aperture || ''},
+                { k: "Shutter Speed",   v: photo.metadata.shutterSpeed || ''},
+                { k: "ISO Sensitivity", v: typeof photo.metadata.iso === 'number' ? `ISO ${photo.metadata.iso}` : ''},
+                { k: "Focal Length",    v: photo.metadata.focalLength || ''},
               ].map((spec, idx) => (
                 <div key={idx} className="flex flex-col gap-1">
                   <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px]">
@@ -118,7 +123,7 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
                   Location Discovery
                 </span>
                 <p className="font-semibold text-slate-800">
-                  {photo.location}
+                  {photo.location ? photo.location : "Not Available"}
                 </p>
               </div>
             </div>
@@ -128,7 +133,14 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
           <div className="flex flex-col gap-8">
             <div className="p-8 rounded-[1.5rem] soft-ui-extruded bg-[#E0E5EC] flex-grow flex flex-col items-center justify-center text-center">
               <div className="w-full aspect-square rounded-2xl overflow-hidden soft-ui-recessed mb-6">
-                <MapWrapper lat={photo.coordinates.lat} lng={photo.coordinates.lng} />
+                {photo.coordinates &&
+                 typeof photo.coordinates.lat === 'number' &&
+                 typeof photo.coordinates.lng === 'number' &&
+                 !isNaN(photo.coordinates.lat) &&
+                  !isNaN(photo.coordinates.lng)
+                  ? (<MapWrapper lat={photo.coordinates.lat} lng={photo.coordinates.lng} />)
+                  : (<div className="font-semibold uppercase mt-32">Invalid Coordinates</div>)
+                }
               </div>
               <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px] mb-2">
                 Capture Coordinates
