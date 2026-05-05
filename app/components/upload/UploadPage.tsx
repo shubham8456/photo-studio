@@ -1,24 +1,70 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 import Header from "../header";
 import Footer from "../footer";
+import ImageUploader from "../ImageUploader";
+import FormField from "../FormField";
+import AddTags from "./AddTags";
 
-import { ArrowBack }  from "../icons/ArrowBack";
-import { UploadFile } from "../icons/UploadFile";
-import { AddCircle }  from "../icons/AddCircle";
-import { Close }      from "../icons/Close";
-import { Publish }    from "../icons/Publish";
-import { photoDetails } from "@/data/photo_details";
+import { ArrowBack } from "../icons/ArrowBack";
+import { Publish } from "../icons/Publish";
 
-const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
+import { toBrowserDateTime, toISODateTime } from "@/utils/date";
 
-const publishPost = () => {
+import { PhotoDetails, Metadata } from "@/types/photo";
+
+const publishPost = async () => {
+  // TODO
+  let file;
+  let formData;
+  if (!file) return;
+
+  const formDataToSend = new FormData();
+
+  // This is where the 'file' state finally gets used!
+  formDataToSend.append("file", file);
+
+  // We also send the text metadata we collected
+  formDataToSend.append("details", JSON.stringify(formData));
+
+  const response = await fetch("/api/local-save", {
+    method: "POST",
+    body: formDataToSend,
+  });
+
+  if (response.ok) alert("Saved to /public/images and photo_details.ts!");
   return;
-}
+};
 
 export default function UploadPage() {
+  const [file, setFile] = useState<File | null>(null);
+  const [formData, setFormData] = useState<Partial<PhotoDetails>>({
+    title: "",
+  });
+
+  type MetadataKey = keyof Metadata;
+  const metadataFields: { id: MetadataKey; label: string; placeholder: string }[] = [
+    { id: "cameraBody",   label: "Camera Body",   placeholder: "e.g. Sony A7R IV" },
+    { id: "lensSystem",   label: "Lens System",   placeholder: "e.g. EF-S... IS STM" },
+    { id: "aperture",     label: "Aperture",      placeholder: "e.g. f/5" },
+    { id: "shutterSpeed", label: "Shutter Speed", placeholder: "e.g. 1/100s" },
+    { id: "iso",          label: "ISO",           placeholder: "e.g. 100" },
+    { id: "focalLength",  label: "Focal Length",  placeholder: "e.g. 35mm" },
+  ];
+
+  const updateMeta = (key: keyof Metadata, val: string | number) => {
+    setFormData((prev) => ({
+      ...prev,
+      metadata: {
+        ...(prev.metadata || {iso:0,cameraBody:'',lensSystem:'',aperture:'',shutterSpeed:'',focalLength:''}),
+        [key]: key === "iso" ? Number(val) : val,
+      } as Metadata,
+    }));
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -41,90 +87,114 @@ export default function UploadPage() {
           <header className="mb-6">
             <h1 className="font-display-lg text-display-lg text-on-surface mb-2 text-2xl md:text-4xl font-bold uppercase">
               UPLOAD&nbsp;
-              <span className="text-slate-400">
-                NEW PHOTOS
-              </span>
+              <span className="text-slate-400">NEW PHOTOS</span>
             </h1>
             <p className="text-on-surface-variant">
               Contribute your finest landscape photography to this curated collection.
             </p>
           </header>
 
-          <section className="mb-6">
-            <div className="soft-ui-recessed rounded-3xl p-12 flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 min-h-[400px] text-center group cursor-pointer transition-all">
-              <div className="soft-ui-extruded w-24 h-24 rounded-full flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-                <UploadFile />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                Drag & drop your masterpiece
-              </h3>
-              <p className="text-on-surface-variant max-w-sm mb-8">
-                High-resolution JPEG, PNG, or WebP files.
-              </p>
-              <button className="soft-ui-extruded px-8 py-3 rounded-xl font-bold text-xs text-slate-600 uppercase tracking-widest active:scale-95 transition-all">
-                Select File
-              </button>
-            </div>
-          </section>
+          <ImageUploader
+            setFile={setFile}
+            formData={formData}
+            setFormData={setFormData}
+          />
 
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Image Deatils Form */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-6">
             <div className="space-y-8">
-              <div>
-                <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-                  Photo Title
-                </label>
-                <input
-                  className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400"
-                  placeholder="e.g. Whispers of the Cascades"
-                  type="text"
+              <FormField
+                label="Photo Title"
+                placeholder="e.g. Whispers of the Cascades"
+                value={formData.title}
+                onChange={(val) => setFormData({ ...formData, title: val })}
+              />
+
+              <FormField
+                label="Description"
+                type="textarea"
+                placeholder="Describe the conditions, lighting, and narrative of the shot..."
+                value={formData.desc}
+                onChange={(val) => setFormData({ ...formData, desc: val })}
+              />
+
+              <FormField
+                label="Location"
+                placeholder="e.g. Uttarakhand, India"
+                value={formData.location}
+                onChange={(val) => setFormData({ ...formData, location: val })}
+              />
+
+              <div className="grid grid-cols-2 gap-4">
+                <FormField
+                  label="Latitude"
+                  value={formData.coordinates?.lat}
+                  onChange={(val) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      coordinates: {
+                        ...(prev.coordinates || { lat: 0, lng: 0 }),
+                        lat: Number(val),
+                      },
+                    }))
+                  }
+                />
+                <FormField
+                  label="Longitude"
+                  value={formData.coordinates?.lng}
+                  onChange={(val) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      coordinates: {
+                        ...(prev.coordinates || { lat: 0, lng: 0 }),
+                        lng: Number(val),
+                      },
+                    }))
+                  }
                 />
               </div>
+
               <div>
-                <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-                  Description
+                <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-1">
+                  Capture Date & Time
                 </label>
-                <textarea
+                <span className="text-[9px] text-slate-400 font-bold uppercase">
+                  {Intl.DateTimeFormat().resolvedOptions().timeZone}
+                </span>
+                <input
+                  type="datetime-local"
+                  value={toBrowserDateTime(formData.createdAt || "")}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      createdAt: toISODateTime(e.target.value),
+                    })
+                  }
                   className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400"
-                  placeholder="Describe the conditions, lighting, and narrative of the shot..."
-                  rows={4}
-                ></textarea>
+                />
               </div>
             </div>
-            <div className="space-y-8">
-              <div>
-                <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-                  Add Tags
-                </label>
-                <div className="relative">
-                  <input
-                    className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400 pr-14"
-                    placeholder="Type a tag and press enter..."
-                    type="text"
-                  />
-                  <AddCircle />
-                </div>
-              </div>
-              <div>
-                <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-                  Selected Tags
-                </label>
-                <div className="flex flex-wrap gap-4">
-                  {categories.map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className="soft-ui-extruded px-4 py-2 rounded-full text-xs text-slate-600 flex items-center gap-2 cursor-pointer hover:shadow-sm"
-                      >
-                        {tag}{" "}
-                        <Close />
-                      </span>
-                    ),
-                  )}
-                </div>
-              </div>
-            </div>
+
+            <AddTags />
           </section>
 
+          <span className="font-semibold text-slate-500 uppercase">
+            Technical MetaData
+          </span>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {metadataFields.map((field) => (
+              <FormField
+                key={field.id}
+                label={field.label}
+                placeholder={field.placeholder}
+                value={formData.metadata?.[field.id]}
+                onChange={(val) => updateMeta(field.id, val)}
+              />
+            ))}
+          </div>
+
+          {/* Save the changes */}
           <section className="mt-10 flex justify-start items-center gap-8">
             <button className="font-bold text-slate-400 uppercase tracking-widest hover:text-slate-600 transition-colors">
               Save Draft

@@ -12,10 +12,11 @@ const GalleryItem = ({ id, title, desc, url, aspect }: PhotoDetails) => (
       <div className={`neumorphic-inset-img rounded-[1rem] overflow-hidden relative ${aspect}`}>
         <Image
           src={url}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           alt={title}
-          width="100"
-          height="100"
+          width={100}
+          height={100}
+          quality={75}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       <div className="px-2 pb-1">
