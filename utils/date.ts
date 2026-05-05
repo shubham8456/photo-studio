@@ -13,7 +13,7 @@ export const formatDate = (isoString: string): string => {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    timeZone: 'UTC',
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     ...(hasTime && { hour: '2-digit', minute: '2-digit' })
   };
 

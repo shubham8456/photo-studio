@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function POST(req: Request) {
   // Only allow this on local development for security
-  if (process.env.NODE_NODE !== 'development') {
+  if (process.env.NODE_ENV !== 'development') {
     return NextResponse.json({ error: "Not allowed" }, { status: 403 });
   }
 

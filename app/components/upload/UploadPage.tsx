@@ -40,8 +40,9 @@ const publishPost = async () => {
 };
 
 export default function UploadPage() {
-  const [file, setFile] = useState<File | null>(null);
-  const [formData, setFormData] = useState<Partial<PhotoDetails>>({
+  const [file, setFile]                 = useState<File | null>(null);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [formData, setFormData]         = useState<Partial<PhotoDetails>>({
     title: "",
   });
 
@@ -63,6 +64,38 @@ export default function UploadPage() {
         [key]: key === "iso" ? Number(val) : val,
       } as Metadata,
     }));
+  };
+
+  const publishPost = async () => {
+    if (!file || !formData.title) {
+      alert("Please select an image and provide a title.");
+      return;
+    }
+
+    setIsPublishing(true);
+
+    try {
+      const data = new FormData();
+      data.append("file", file);
+      data.append("details", JSON.stringify(formData));
+
+      const response = await fetch("/api/local-save", {
+        method: "POST",
+        body: data,
+      });
+
+      if (!response.ok) { throw new Error("Failed to save the image to the local library.") }
+
+      const result = await response.json();
+
+      alert("Successfully published to Gallery!");
+      console.log("Server Response:", result);
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Error publishing: " + (error as Error).message);
+    } finally {
+      setIsPublishing(false);
+    }
   };
 
   return (
@@ -199,11 +232,13 @@ export default function UploadPage() {
           {/* Save the changes */}
           <section className="mt-10 flex justify-start items-center gap-8">
             <button
-              onClick={() => publishPost()}
-              className="soft-ui-extruded px-12 py-5 rounded-2xl font-bold text-lg text-slate-800 bg-slate-50 active:scale-95 transition-all flex items-center gap-3"
+              onClick={publishPost}
+              disabled={isPublishing}
+              className={`soft-ui-extruded px-12 py-5 rounded-2xl font-bold text-lg text-slate-800 bg-slate-50 active:scale-95 transition-all flex items-center gap-3 ${
+                isPublishing ? "opacity-50 cursor-not-allowed" : ""}`}
             >
-              <Publish />
-              Publish to Gallery
+              <Publish className={isPublishing ? "animate-pulse" : ""} />
+              {isPublishing ? "Saving to Disk..." : "Publish to Gallery"}
             </button>
           </section>
         </div>
