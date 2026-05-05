@@ -1,5 +1,3 @@
-import { AddCircle }  from "../icons/AddCircle";
-import { Close }      from "../icons/Close";
 import { photoDetails } from "@/data/photo_details";
 
 const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
@@ -9,20 +7,19 @@ export default function AddTags() {
     <div className="space-y-8">
       <div>
         <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-          Add Tags
+          Adding Tags helps users in filtering photos
         </label>
         <div className="relative">
           <input
             className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400 pr-14"
-            placeholder="Type a tag and press enter..."
+            placeholder="Comma-separated, e.g., snow, ocean, coast"
             type="text"
           />
-          <AddCircle />
         </div>
       </div>
       <div>
         <label className="block font-label-sm text-xs text-slate-500 uppercase tracking-wider mb-4">
-          Selected Tags
+          Previously Used Tags
         </label>
         <div className="flex flex-wrap gap-4">
           {categories.map(
@@ -32,7 +29,6 @@ export default function AddTags() {
                 className="soft-ui-extruded px-4 py-2 rounded-full text-xs text-slate-600 flex items-center gap-2 cursor-pointer hover:shadow-sm"
               >
                 {tag}{" "}
-                <Close />
               </span>
             ),
           )}

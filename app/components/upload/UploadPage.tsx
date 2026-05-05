@@ -129,6 +129,7 @@ export default function UploadPage() {
                 <FormField
                   label="Latitude"
                   value={formData.coordinates?.lat}
+                  placeholder="0.00"
                   onChange={(val) =>
                     setFormData((prev) => ({
                       ...prev,
@@ -142,6 +143,7 @@ export default function UploadPage() {
                 <FormField
                   label="Longitude"
                   value={formData.coordinates?.lng}
+                  placeholder="0.00"
                   onChange={(val) =>
                     setFormData((prev) => ({
                       ...prev,
@@ -196,9 +198,6 @@ export default function UploadPage() {
 
           {/* Save the changes */}
           <section className="mt-10 flex justify-start items-center gap-8">
-            <button className="font-bold text-slate-400 uppercase tracking-widest hover:text-slate-600 transition-colors">
-              Save Draft
-            </button>
             <button
               onClick={() => publishPost()}
               className="soft-ui-extruded px-12 py-5 rounded-2xl font-bold text-lg text-slate-800 bg-slate-50 active:scale-95 transition-all flex items-center gap-3"
