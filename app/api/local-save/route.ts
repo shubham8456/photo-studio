@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+import { PhotoDetails } from '@/types/photo';
+
 export async function POST(req: Request) {
   // Only allow this on local development for security
   if (process.env.NODE_ENV !== 'development') {
@@ -10,7 +12,7 @@ export async function POST(req: Request) {
 
   const data = await req.formData();
   const file = data.get('file') as File;
-  const details = JSON.parse(data.get('details') as string);
+  const newPhotoDetails = JSON.parse(data.get('details') as string);
 
   // 1. Save the image to public folder
   const bytes = await file.arrayBuffer();
@@ -18,18 +20,13 @@ export async function POST(req: Request) {
   const imagePath = path.join(process.cwd(), 'public/src/images', file.name);
   fs.writeFileSync(imagePath, buffer);
 
-  // 2. Update the .ts file
-  const tsFilePath = path.join(process.cwd(), 'data/photo_details.ts');
-  const fileContent = fs.readFileSync(tsFilePath, 'utf8');
-  
-  // Very simple injection logic: find the array end and insert before it
-  // Note: For a more robust version, you might want to use a JSON file instead
-  const updatedContent = fileContent.replace(
-    /\];/, 
-    `  ${JSON.stringify(details, null, 2)},\n];`
-  );
-  
-  fs.writeFileSync(tsFilePath, updatedContent);
+  // 2. Update the .json file
+  const jsonFilePath = path.join(process.cwd(), 'data/photo_details.json');
+  const fileContent = fs.readFileSync(jsonFilePath, 'utf8');
+  const photoData: PhotoDetails[] = JSON.parse(fileContent).photo_data;
+  photoData.unshift(newPhotoDetails);
+
+  fs.writeFileSync(jsonFilePath, JSON.stringify({ photo_data: photoData }, null, 2));
 
   return NextResponse.json({ success: true });
 }

@@ -6,9 +6,9 @@ import GalleryItem from "./GalleryItem";
 import Header from "../header";
 import Footer from "../footer";
 import { FilterIcon } from '@/app/components/icons/FilterIcon';
-import { photoDetails } from "@/data/photo_details";
+import photoDetails from "@/data/photo_details.json";
 
-const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
+const categories = [...new Set(photoDetails.photo_data.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
 
 export default function HomePage() {
   const router = useRouter();
@@ -25,8 +25,8 @@ export default function HomePage() {
   };
 
   const filteredPhotos = activeCategory === "ALL" 
-    ? photoDetails
-    : photoDetails.filter(photo => photo.tags.includes(activeCategory.toLowerCase()));
+    ? photoDetails.photo_data
+    : photoDetails.photo_data.filter(photo => photo.tags.includes(activeCategory.toLowerCase()));
 
   return (
     <div className="min-h-screen">

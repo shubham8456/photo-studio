@@ -1,6 +1,6 @@
-import { photoDetails } from "@/data/photo_details";
+import photoDetails from "@/data/photo_details.json";
 
-const categories = [...new Set(photoDetails.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
+const categories = [...new Set(photoDetails.photo_data.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
 
 export default function AddTags() {
   return (
