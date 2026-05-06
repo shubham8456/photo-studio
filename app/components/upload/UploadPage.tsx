@@ -12,32 +12,11 @@ import AddTags from "./AddTags";
 import { ArrowBack } from "../icons/ArrowBack";
 import { Publish } from "../icons/Publish";
 
+import { compressImage } from '@/utils/compressor';
 import { toBrowserDateTime, toISODateTime } from "@/utils/date";
 
 import { PhotoDetails, Metadata } from "@/types/photo";
 
-const publishPost = async () => {
-  // TODO
-  let file;
-  let formData;
-  if (!file) return;
-
-  const formDataToSend = new FormData();
-
-  // This is where the 'file' state finally gets used!
-  formDataToSend.append("file", file);
-
-  // We also send the text metadata we collected
-  formDataToSend.append("details", JSON.stringify(formData));
-
-  const response = await fetch("/api/local-save", {
-    method: "POST",
-    body: formDataToSend,
-  });
-
-  if (response.ok) alert("Saved to /public/images and photo_details.ts!");
-  return;
-};
 
 export default function UploadPage() {
   const [file, setFile]                 = useState<File | null>(null);
@@ -67,8 +46,8 @@ export default function UploadPage() {
   };
 
   const publishPost = async () => {
-    if (!file || !formData.title) {
-      alert("Please select an image and provide a title.");
+    if (!file) {
+      alert("Please select an image first.");
       return;
     }
 
@@ -76,7 +55,8 @@ export default function UploadPage() {
 
     try {
       const data = new FormData();
-      data.append("file", file);
+      const compressedFile = await compressImage(file);
+      data.append("file", compressedFile);
       data.append("details", JSON.stringify(formData));
 
       const response = await fetch("/api/local-save", {
