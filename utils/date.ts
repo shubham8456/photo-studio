@@ -4,7 +4,9 @@
  */
 
 export const formatDate = (isoString: string): string => {
+  if (!isoString) return "";
   const date = new Date(isoString);
+  if (isNaN(date.getTime())) return "";
   
   // Check if time is exactly 00:00
   const hasTime = date.getUTCHours() !== 0 || date.getUTCMinutes() !== 0;
@@ -25,6 +27,7 @@ export const formatDate = (isoString: string): string => {
 export const toBrowserDateTime = (isoString: string | undefined): string => {
   if (!isoString) return "";
   const date = new Date(isoString);
+  if (isNaN(date.getTime())) return "";
 
   // Get the timezone offset in minutes and convert to milliseconds
   const offset = date.getTimezoneOffset() * 60000;

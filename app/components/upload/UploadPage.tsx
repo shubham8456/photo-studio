@@ -210,7 +210,10 @@ export default function UploadPage() {
               </div>
             </div>
 
-            <AddTags />
+            <AddTags
+              formData={formData}
+              setFormData={setFormData}
+            />
           </section>
 
           <span className="font-semibold text-slate-500 uppercase">

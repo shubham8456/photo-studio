@@ -23,8 +23,20 @@ export async function POST(req: Request) {
   // 2. Update the .json file
   const jsonFilePath = path.join(process.cwd(), 'data/photo_details.json');
   const fileContent = fs.readFileSync(jsonFilePath, 'utf8');
-  const photoData: PhotoDetails[] = JSON.parse(fileContent).photo_data;
-  photoData.unshift(newPhotoDetails);
+  const fullData = JSON.parse(fileContent);
+  const photoData: PhotoDetails[] = fullData.photo_data;
+  
+  const sanitizedEntry: PhotoDetails = {
+    id: `img-${Date.now()}`,
+    url: `/src/images/${file.name}`,
+    title: "",
+    desc: "",
+    aspect: "",
+    tags: [],
+    ...newPhotoDetails,
+  };
+
+  photoData.unshift(sanitizedEntry);
 
   fs.writeFileSync(jsonFilePath, JSON.stringify({ photo_data: photoData }, null, 2));
 

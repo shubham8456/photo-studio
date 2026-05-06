@@ -48,7 +48,6 @@ export default function ImageUploader({ setFile, formData, setFormData }: ImageU
 
       const updatedDetails = {
         ...formData,
-        title: selectedFile.name.replace(/\.[^/.]+$/, ""),
         createdAt: data.DateTimeOriginal?.toISOString() || "",
         location: readableLocation,
         coordinates: {

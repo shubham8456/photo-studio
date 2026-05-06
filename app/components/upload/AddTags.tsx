@@ -1,8 +1,14 @@
 import photoDetails from "@/data/photo_details.json";
+import { PhotoDetails } from "@/types/photo";
+
+interface AddTagsProps {
+  formData: Partial<PhotoDetails>;
+  setFormData: (data: Partial<PhotoDetails>) => void;
+}
 
 const categories = [...new Set(photoDetails.photo_data.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
 
-export default function AddTags() {
+export default function AddTags({ formData, setFormData }: AddTagsProps) {
   return (
     <div className="space-y-8">
       <div>
@@ -11,9 +17,10 @@ export default function AddTags() {
         </label>
         <div className="relative">
           <input
+            type="text"
             className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400 pr-14"
             placeholder="Comma-separated, e.g., snow, ocean, coast"
-            type="text"
+            onChange={(e) => setFormData({ ...formData, tags: e.target.value.split(',').map((t: string) => t.trim()) })}
           />
         </div>
       </div>
