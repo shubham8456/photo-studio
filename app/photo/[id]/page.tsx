@@ -5,6 +5,12 @@ import PhotoDetailsPage from "@/app/components/photo/PhotoDetailsPage";
 
 type PhotoPageParams = Promise<{ id: string }>;
 
+export async function generateStaticParams() {
+  return photoDetails.photo_data.map((photo) => ({
+    id: photo.id,
+  }));
+}
+
 export default async function LoadPhotoDetailsPage({ params }: { params: PhotoPageParams }) {
   const { id } = await params;
   const photo = photoDetails.photo_data.find((p) => p.id === id);

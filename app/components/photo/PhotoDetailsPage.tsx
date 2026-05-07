@@ -1,14 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import Image         from "next/image";
 
 import MapWrapper from "./MapWrapper";
-import Header from "../header";
-import Footer from "../footer";
+import Header     from "../header";
+import Footer     from "../footer";
 
 import { PhotoDetails } from "@/types/photo";
-import { formatDate } from "@/utils/date";
+import { formatDate }   from "@/utils/date";
 
 import { ArrowBack } from "../icons/ArrowBack";
 import { Camera }    from "../icons/Camera";
