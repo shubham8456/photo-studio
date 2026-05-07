@@ -1,26 +1,4 @@
 {
-  "photo_data": [
-    {
-      "id": "img-1778097330238",
-      "url": "/src/images/20201231_135457-01.webp",
-      "title": "autumn-1",
-      "desc": "",
-      "aspect": "",
-      "tags": [],
-      "createdAt": "2020-12-31T08:24:58.000Z",
-      "location": "",
-      "coordinates": {
-        "lat": 0,
-        "lng": 0
-      },
-      "metadata": {
-        "cameraBody": "samsung SM-G973F",
-        "lensSystem": "Unknown Lens",
-        "aperture": "f/2.2",
-        "shutterSpeed": "1/427s",
-        "iso": 50,
-        "focalLength": "1.8mm"
-      }
-    }
-  ]
+  "_comment" : "currently used tags are, mountains, snow, glacier, ocean, coast, forest, desert",
+  "photo_data" : []
 }
