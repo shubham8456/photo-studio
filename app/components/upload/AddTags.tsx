@@ -6,7 +6,9 @@ interface AddTagsProps {
   setFormData: (data: Partial<PhotoDetails>) => void;
 }
 
-const categories = [...new Set(photoDetails.photo_data.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
+const categories = [...new Set(photoDetails.photo_data.flatMap(photo =>
+  photo.tags.map((tag: string) => tag.toUpperCase()))
+)];
 
 export default function AddTags({ formData, setFormData }: AddTagsProps) {
   return (

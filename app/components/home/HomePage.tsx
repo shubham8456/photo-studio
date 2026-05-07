@@ -8,7 +8,9 @@ import Footer from "../footer";
 import { FilterIcon } from '@/app/components/icons/FilterIcon';
 import photoDetails from "@/data/photo_details.json";
 
-const categories = [...new Set(photoDetails.photo_data.flatMap(photo => photo.tags.map(tag => tag.toUpperCase())))];
+const categories = [...new Set(photoDetails.photo_data.flatMap(photo =>
+  photo.tags.map((tag: string) => tag.toUpperCase()))
+)];
 
 export default function HomePage() {
   const router = useRouter();
