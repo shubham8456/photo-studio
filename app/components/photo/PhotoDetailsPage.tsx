@@ -102,7 +102,7 @@ export default function PhotoDetailsPage({ photo }: PhotoDetailsPageProps) {
                 { k: "Lens System",     v: photo.metadata.lensSystem || ''},
                 { k: "Aperture",        v: photo.metadata.aperture || ''},
                 { k: "Shutter Speed",   v: photo.metadata.shutterSpeed || ''},
-                { k: "ISO Sensitivity", v: typeof photo.metadata.iso === 'number' ? `ISO ${photo.metadata.iso}` : ''},
+                { k: "ISO Sensitivity", v: typeof photo.metadata.iso === 'number' && photo.metadata.iso != 0 ? `ISO ${photo.metadata.iso}` : ''},
                 { k: "Focal Length",    v: photo.metadata.focalLength || ''},
               ].map((spec, idx) => (
                 <div key={idx} className="flex flex-col gap-1">

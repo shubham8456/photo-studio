@@ -22,7 +22,12 @@ export default function AddTags({ formData, setFormData }: AddTagsProps) {
             type="text"
             className="w-full bg-[#E0E5EC] border-none soft-ui-recessed rounded-xl px-6 py-4 focus:ring-0 text-slate-800 placeholder:text-slate-400 pr-14"
             placeholder="Comma-separated, e.g., snow, ocean, coast"
-            onChange={(e) => setFormData({ ...formData, tags: e.target.value.split(',').map((t: string) => t.trim()) })}
+            onChange={(e) => setFormData({ 
+              ...formData, 
+              tags: e.target.value.split(',')
+                .map((t: string) => t.trim())
+                .filter((t: string) => t !== "")
+            })}
           />
         </div>
       </div>

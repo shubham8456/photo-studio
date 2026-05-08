@@ -1,4 +1,556 @@
 {
-  "_comment" : "currently used tags are, mountains, snow, glacier, ocean, coast, forest, desert",
-  "photo_data" : []
+  "photo_data": [
+    {
+      "id": "img-1778222082371",
+      "url": "/src/images/IMG_20201122_064603_onFire(Abhi)-02.webp",
+      "title": "Evenings at Mussoorie",
+      "desc": "",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2020-11-22T01:16:04.000Z",
+      "location": "Mussoorie, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.437335497866485,
+        "lng": 78.07578245728256
+      },
+      "metadata": {
+        "cameraBody": "Xiaomi POCO F1",
+        "lensSystem": "Unknown Lens",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/100s",
+        "iso": 249,
+        "focalLength": "3.94mm"
+      }
+    },
+    {
+      "id": "img-1778221777607",
+      "url": "/src/images/IMG_20201118_135638_onFire(Abhi)-02.webp",
+      "title": "Tehri Lake",
+      "desc": "2000MW Hydro-power plant on the Bhagirathi river in Tehri, Uttarakhand. The reservoir spreads over 52 sq. kms.",
+      "aspect": "",
+      "tags": [],
+      "createdAt": "2020-11-18T08:26:38.000Z",
+      "location": "Tehri Lake, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.378604692795644,
+        "lng": 78.47528394775856
+      },
+      "metadata": {
+        "cameraBody": "Xiaomi POCO F1",
+        "lensSystem": "Unknown Lens",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/1838s",
+        "iso": 111,
+        "focalLength": "3.94mm"
+      }
+    },
+    {
+      "id": "img-1778221165091",
+      "url": "/src/images/IMG_20190403_164704-02.webp",
+      "title": "Buransh!",
+      "desc": "Red Buransh (Rhododendron) blooming in the Chopta Valley, Uttarakhand. Himalayas looming in the background.",
+      "aspect": "",
+      "tags": [
+        "mountains",
+        "snow"
+      ],
+      "createdAt": "2019-04-03T11:17:05.000Z",
+      "location": "Chopta, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.491660037190137,
+        "lng": 79.2059650855759
+      },
+      "metadata": {
+        "cameraBody": "Xiaomi Poco F1",
+        "lensSystem": "Unknown Lens",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/2242s",
+        "iso": 100,
+        "focalLength": "3.94mm"
+      }
+    },
+    {
+      "id": "img-1778169286470",
+      "url": "/src/images/IMG_20190403_161621-01.webp",
+      "title": "Chopta",
+      "desc": "Meadows of Chopta valley",
+      "aspect": "",
+      "tags": [
+        "mountains",
+        "snow"
+      ],
+      "createdAt": "2019-04-03T10:46:21.000Z",
+      "location": "Chopta, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.484650722196417,
+        "lng": 79.20021875720651
+      },
+      "metadata": {
+        "cameraBody": "Xiaomi Poco F1",
+        "lensSystem": "",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/3279s",
+        "iso": 100,
+        "focalLength": "3.94mm"
+      }
+    },
+    {
+      "id": "img-1778168720665",
+      "url": "/src/images/IMG_20190126_102727-01.webp",
+      "title": "View from Gun-Hill Top",
+      "desc": "Photo taken from Gun-Hill Top, Mussoorie. Mt. Bandarpunch, source of river Yamuna, visible in the backdrop.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2019-01-26T04:57:28.000Z",
+      "location": "Mussoorie, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.45946304609067,
+        "lng": 78.07427546434273
+      },
+      "metadata": {
+        "cameraBody": "ONEPLUS A3003",
+        "lensSystem": "",
+        "aperture": "f/2",
+        "shutterSpeed": "1/1351s",
+        "iso": 100,
+        "focalLength": "4.26mm"
+      }
+    },
+    {
+      "id": "img-1778168194139",
+      "url": "/src/images/IMG_9445-01.webp",
+      "title": "Mt. Kedar Dome",
+      "desc": "Photo taken while walking through small hill station town of Chopta, Uttarakhand, India",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2019-10-31T03:30:31.000Z",
+      "location": "Chopta, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.484650722196417,
+        "lng": 79.20021875720651
+      },
+      "metadata": {
+        "cameraBody": "Canon Canon EOS 600D",
+        "lensSystem": "EF-S18-55mm f/3.5-5.6 IS II",
+        "aperture": "f/10",
+        "shutterSpeed": "1/250s",
+        "iso": 100,
+        "focalLength": "55mm"
+      }
+    },
+    {
+      "id": "img-1778168032028",
+      "url": "/src/images/IMG_1999-02.webp",
+      "title": "Good friends & Great adventure",
+      "desc": "Still remember the day from Dec. 2020. We went there expecting snow, but were 2 days too early. Nevertheless had great fun, and also brought new little furry friend, Tuffy, from there.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2020-12-07T07:28:00.000Z",
+      "location": "Auli, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.531209159833438,
+        "lng": 79.56211132103519
+      },
+      "metadata": {
+        "cameraBody": "Apple iPhone XS Max",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778167641387",
+      "url": "/src/images/IMG_1419-02.webp",
+      "title": "The three musketeers",
+      "desc": "A day spent well with the boys.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2020-12-10T13:23:00.000Z",
+      "location": "Malari, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.698197491766873,
+        "lng": 79.88687903301921
+      },
+      "metadata": {
+        "cameraBody": "Apple iPhone XS Max",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778167310186",
+      "url": "/src/images/IMG_1143-01.webp",
+      "title": "Lord Vishnu, the protector!",
+      "desc": "Badrinath, one among the Char Dham pilgrimage of the Sanatan Dharma.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-05-07T03:18:00.000Z",
+      "location": "Badrinath, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.745002427409887,
+        "lng": 79.49131431815096
+      },
+      "metadata": {
+        "cameraBody": "Apple iPhone XS Max",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778166832034",
+      "url": "/src/images/IMG_0726-01.webp",
+      "title": "The Spot",
+      "desc": "Ngl, might be the best airbnb.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2022-02-06T10:10:52.000Z",
+      "location": "BeniTaal, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.161082319756517,
+        "lng": 79.24615801151621
+      },
+      "metadata": {
+        "cameraBody": "Canon Canon EOS 200D II",
+        "lensSystem": "EF-S55-250mm f/4-5.6 IS II",
+        "aperture": "f/5.6",
+        "shutterSpeed": "1/640s",
+        "iso": 100,
+        "focalLength": "70mm"
+      }
+    },
+    {
+      "id": "img-1778166564667",
+      "url": "/src/images/IMG_0465-01.webp",
+      "title": "Kartik Swami",
+      "desc": "Kartik Swami temple, located on top of the Kronch parvat.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2022-01-16T10:25:35.000Z",
+      "location": "Kartik Swami, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.38578069464617,
+        "lng": 79.09875777386947
+      },
+      "metadata": {
+        "cameraBody": "Canon Canon EOS 200D II",
+        "lensSystem": "EF-S55-250mm f/4-5.6 IS II",
+        "aperture": "f/6.3",
+        "shutterSpeed": "1/640s",
+        "iso": 100,
+        "focalLength": "55mm"
+      }
+    },
+    {
+      "id": "img-1778166412874",
+      "url": "/src/images/IMG_0407-01.webp",
+      "title": "Chaukhambha rising!",
+      "desc": "You don't have to believe me, but this is my native place.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2022-01-16T06:47:02.000Z",
+      "location": "Pokhari, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.330560230836998,
+        "lng": 79.20152948613716
+      },
+      "metadata": {
+        "cameraBody": "Canon Canon EOS 200D II",
+        "lensSystem": "EF-S55-250mm f/4-5.6 IS II",
+        "aperture": "f/7.1",
+        "shutterSpeed": "1/640s",
+        "iso": 100,
+        "focalLength": "79mm"
+      }
+    },
+    {
+      "id": "img-1778165942277",
+      "url": "/src/images/IMG_0226-02.webp",
+      "title": "In the presence of the massifs",
+      "desc": "Boys, in their early 20s, realising what the true freedom really is.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-11-01T05:45:28.000Z",
+      "location": "Kedarnath, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.734699924698035,
+        "lng": 79.06642364408599
+      },
+      "metadata": {
+        "cameraBody": "Canon Canon EOS 200D II",
+        "lensSystem": "EF-S18-55mm f/4-5.6 IS STM",
+        "aperture": "f/8",
+        "shutterSpeed": "1/400s",
+        "iso": 100,
+        "focalLength": "44mm"
+      }
+    },
+    {
+      "id": "img-1778165418365",
+      "url": "/src/images/20210101111937_DSC_0188-01.webp",
+      "title": "Chilly mornings in Uttarakhand",
+      "desc": "View of the Pancha-chulhi peaks from the Khaliya top trail in Munsyari on first day of 2021",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-01-01T05:49:37.000Z",
+      "location": "Munsyari, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.06480262885677,
+        "lng": 80.20809795449385
+      },
+      "metadata": {
+        "cameraBody": "NIKON CORPORATION NIKON D3400",
+        "lensSystem": "",
+        "aperture": "f/8",
+        "shutterSpeed": "1/250s",
+        "iso": 100,
+        "focalLength": "55mm"
+      }
+    },
+    {
+      "id": "img-1778165109619",
+      "url": "/src/images/20211101_130852-01.webp",
+      "title": "Reflection",
+      "desc": "This was taken very close to the Kedarnath temple. A small pond of water, but the reflection of the backdrop in it, was captivating.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-11-01T05:43:00.000Z",
+      "location": "Kedarnath, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.727148595273317,
+        "lng": 79.06964701163156
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778163697651",
+      "url": "/src/images/20211003_143806-01.webp",
+      "title": "Conquer the World",
+      "desc": "A photo I'm proud of. Perfect timing.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-10-03T12:21:00.000Z",
+      "location": "Chopta, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.484650722196417,
+        "lng": 79.20021875720651
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778163576189",
+      "url": "/src/images/20211003_141003-01.webp",
+      "title": "Spring babies",
+      "desc": "",
+      "aspect": "",
+      "tags": [
+      ],
+      "createdAt": "2021-10-03T09:18:00.000Z",
+      "location": "Chadrashila (Chopta), Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.486970555424556,
+        "lng": 79.22120232407354
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778163417234",
+      "url": "/src/images/20211003_104548-01.webp",
+      "title": "Must be the AI",
+      "desc": "A view hard to accept is not AI. Taken in the Kedarnath Sanctuary region, around the town of Chopta.",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2021-10-03T06:16:00.000Z",
+      "location": "Chopta, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.478121538489955,
+        "lng": 79.21017875641486
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778163279757",
+      "url": "/src/images/20210911_062803-01.webp",
+      "title": "My place, \"Gauchar\"",
+      "desc": "This one is special. It's my hometown, my Gauchar. This is where I spent my golden childhood days.",
+      "aspect": "",
+      "tags": [
+        "mountains",
+        "sky"
+      ],
+      "createdAt": "2021-09-11T01:14:00.000Z",
+      "location": "Gauchar, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.28958184653027,
+        "lng": 79.1550635425531
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778163042098",
+      "url": "/src/images/20210415_152743-01.webp",
+      "title": "The mother, \"Ganga\"",
+      "desc": "The confluence of rivers Bhagirathi coming from Gaumukh, Gangotri & Alaknanda from Badrinath which further downwards will be known as Ganga, the life nurturer.",
+      "aspect": "",
+      "tags": [
+        "rivers",
+        "mountains"
+      ],
+      "createdAt": "2021-04-15T05:10:00.000Z",
+      "location": "Devprayag, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.1453888113831,
+        "lng": 78.59633351574291
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778162748737",
+      "url": "/src/images/20210206_145348-01.webp",
+      "title": "Glimpse of the Mighty Trishul",
+      "desc": "Mt. Trishul (7120 m. ASL) as seen from the top of Kronch parvat.",
+      "aspect": "",
+      "tags": [],
+      "createdAt": "2021-02-06T06:01:00.000Z",
+      "location": "Kartik Swami, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.38578069464617,
+        "lng": 79.09875777386947
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "Unknown Lens",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    },
+    {
+      "id": "img-1778162412487",
+      "url": "/src/images/20201231_174558-02.webp",
+      "title": "Dusky sky",
+      "desc": "Beautiful Munsyari winter-line captured on the New Year 2021 eve",
+      "aspect": "",
+      "tags": [
+        "mountains",
+        "sky"
+      ],
+      "createdAt": "2020-12-31T12:15:58.000Z",
+      "location": "Ratapani, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.035281499722224,
+        "lng": 80.19803829972223
+      },
+      "metadata": {
+        "cameraBody": "samsung SM-M215F",
+        "lensSystem": "Unknown Lens",
+        "aperture": "f/2",
+        "shutterSpeed": "1/50s",
+        "iso": 200,
+        "focalLength": "4.6mm"
+      }
+    },
+    {
+      "id": "img-1778162229511",
+      "url": "/src/images/3DLUTmobile_20220504_202128-01.webp",
+      "title": "Mighty Kedaar",
+      "desc": "Mt. Kedarnath Dome standing tall behind the temple town of Kedarnath",
+      "aspect": "",
+      "tags": [
+        "mountains"
+      ],
+      "createdAt": "2022-05-04T01:56:00.000Z",
+      "location": "Kedarnath, Uttarakhand, India",
+      "coordinates": {
+        "lat": 30.73506719000474,
+        "lng": 79.06695447059687
+      },
+      "metadata": {
+        "cameraBody": "Samsung S10",
+        "lensSystem": "Unknown Lens",
+        "aperture": "",
+        "shutterSpeed": "",
+        "iso": 0,
+        "focalLength": ""
+      }
+    }
+  ]
 }
