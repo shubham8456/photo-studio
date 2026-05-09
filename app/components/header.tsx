@@ -11,9 +11,9 @@ const Header = () => {
     <header className="text-center px-8 py-4 w-full sticky top-0 z-50 bg-[#E0E5EC] border-none shadow-[6px_6px_12px_#b8b9be,-6px_-6px_12px_#ffffff]">
       <Link
         href="/"
-        className={`text-2xl font-black text-slate-800 uppercase ${gajrajOne.className}`}
+        className={`text-2xl font-black text-slate-800 uppercase`}
       >
-        रावत HILLBORN
+        Photo. Studio
       </Link>
     </header>
   );
