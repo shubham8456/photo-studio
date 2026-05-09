@@ -2,6 +2,8 @@
 
 This repository contains the source code for Photo Studio, a personal photography portfolio application built with Next.js. It's designed to showcase a curated collection of photos, complete with detailed technical metadata and location data, presented in a clean, responsive interface with a Neumorphic design aesthetic.
 
+![Photo Studio Walkthrough](/public/src/gifs/photo-studio.gif)
+
 ----
 
 ## Features
